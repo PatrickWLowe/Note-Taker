@@ -20,7 +20,13 @@ app.get("/api/notes", function (req, res) {
   res.sendFile(path.join(__dirname, "db/db.json"));
 });
 
-app.post("/api/notes", function (req, res) {});
+app.post("/api/notes", function (req, res) {
+  const newNote = req.body;
+  const notes = JSON.parse(fs.readFileSync("db/db.json", "utf8"));
+  notes.push(newNote);
+  fs.writeFileSync("db/db.json", JSON.stringify(notes));
+  res.json(newNote);
+});
 
 app.delete("/api/notes/:id", function (req, res) {});
 
