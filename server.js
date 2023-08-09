@@ -21,14 +21,23 @@ app.get("/api/notes", function (req, res) {
 });
 
 app.post("/api/notes", function (req, res) {
-  const newNote = req.body;
+  const newNote = {
+    title: req.body.title,
+    text: req.body.text,
+    id: Math.floor(Math.random() * 10000),
+  };
   const notes = JSON.parse(fs.readFileSync("db/db.json", "utf8"));
   notes.push(newNote);
   fs.writeFileSync("db/db.json", JSON.stringify(notes));
   res.json(newNote);
 });
 
-app.delete("/api/notes/:id", function (req, res) {});
+app.delete("/api/notes/:id", function (req, res) {
+  const notes = JSON.parse(fs.readFileSync("db/db.json", "utf8"));
+  const newNotes = notes.filter((note) => note.id != req.params.id);
+  fs.writeFileSync("db/db.json", JSON.stringify(newNotes));
+  res.json(newNotes);
+});
 
 app.listen(PORT, function () {
   console.log("App listening on PORT " + PORT);
