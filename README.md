@@ -52,7 +52,7 @@ THEN I am presented with empty fields to enter a new note title and the note’s
 
 ## Deployed application URL
 
-### https://glacial-badlands-28438-983411de9305.herokuapp.com/
+### https://pure-headland-23232-19476e66dd4e.herokuapp.com/
 
 ## References
 
