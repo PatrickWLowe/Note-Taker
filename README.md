@@ -48,7 +48,7 @@ THEN I am presented with empty fields to enter a new note title and the note’s
 
 ## Screenshots of the APP
 
-![Deployed Webpage Screenshot](./images/ScreenshotPWA1.png)
+![Deployed Webpage Screenshot](./images/Screenshot%202023-08-30%20123937.png)
 
 ## Deployed application URL
 
